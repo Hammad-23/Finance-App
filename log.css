@@ -1,0 +1,19 @@
+.container {
+    background-color: #e6e9ed;
+    width: 450px;
+    height: 500px;
+    padding-top: 50px;
+}
+
+.inp-div {
+    padding-top: 30px;
+    width: 300px;
+    margin: 10px;
+}
+
+.bodyy {
+
+background-image: url(src/assets/signupbg.jpg);
+
+padding-top: 100px;
+}

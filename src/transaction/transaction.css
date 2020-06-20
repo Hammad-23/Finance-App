@@ -1,0 +1,68 @@
+#header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    color: black;
+    background-color: lightblue;
+    font-family: sans-serif;
+    font-size: 20px;
+    height: 70px;
+}
+
+.padding {
+    padding-right: 10px;
+}
+
+#filters {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#filters.select {
+    width: 100px;
+}
+
+
+.transactions {
+    margin-top: 60px;
+    margin-bottom: 20px;
+    
+    
+}
+
+.transaction-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    background-color: darkblue;
+    height: 100px;
+    padding: 0 10px;
+    font-size: 30px;
+
+}
+
+.transaction-header :nth-child(2) {
+    display: flex;
+
+}
+
+.modalDiv {
+
+padding: 20px;
+
+}
+
+#box-div {
+
+    border: solid gray;
+    height: 500px;
+    
+}
+#last-bar {
+    background-color: black;
+    color: white;
+    text-align: center;
+}

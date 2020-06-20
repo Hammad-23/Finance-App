@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<!-- CSS only -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+<!-- JS, Popper.js, and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+
+
+    <link href="transaction.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="header">
+        <div class="padding">Welcome  <span style="color: darkblue; font-size: 23px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;" id="userName">Expertizo</span></div>
+        <img class="padding" width="30px" src="../assets/user.png"/>
+        <p onclick="logOut()" class="padding">Log Out</p>
+
+
+    </div>
+    <br><br>
+
+    <div id="filters">
+          <div class="padding">
+              <p>Select Month</p>
+              <select id="month">
+                  <option value="0">Jan</option>
+                  <option value="1" >Feb</option>
+                  <option value="2">March</option>
+                  <option value="3" >April</option>
+                  <option value="4" >May</option>
+                  <option value="5" >June</option>
+                  <option value="6" >July</option>
+                  <option value="7">August</option>
+                  <option value="8">September</option>
+                  <option value="9">October</option>
+                  <option value="10">November</option>
+                  <option value="11">December</option>
+              </select>
+          </div>
+          <div class="padding">
+              <p>Select Year</p>
+              <select id="year">
+                  <option >2019</option>
+                  <option >2020</option>
+                  <option >2021</option>
+                  <option >2022</option>
+              </select>
+          </div>
+          <div class="padding">
+              <p>Select transaction type</p>
+              <select>
+                  <option>All</option>
+                  <option>Income</option>
+                  <option>Expenses</option>
+              </select>
+          </div>
+          <button class="btn btn-primary">filters</button>
+
+        
+         
+
+    </div>
+    <br><br>
+<!-- transaction box div -->
+<div id="box-div">
+
+
+    <div class="transactions">
+        <div class="transaction-header">
+            <div>
+                Transactions
+            </div>
+            <div>
+              <p data-toggle="modal" data-target="#incomeModal">    + Income</p>
+              <p data-toggle="modal" data-target="#expensesModal">+ Expenses</p>
+            </div>
+
+        </div>
+
+  <!-- table div -->
+  <div id="tableDiv">
+    <table id="table" style="border: solid;">
+
+
+    </table>
+
+    <!-- <table class="table table-hover table-dark">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Date</th>
+          <th scope="col">Category</th>
+          <th scope="col">Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td id="column1"></td>
+          <td id="column2"></td>
+          <td id="column3"></td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td colspan="2"></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table> -->
+
+  </div>
+  <!-- table div ends here  -->
+
+
+
+    </div>
+
+<!-- Button trigger modal -->
+<!-- <button  type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Launch demo modal
+  </button> -->
+  
+  <!-- Modal -->
+  
+  <div class="modal fade" id="incomeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Income Modal</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+       
+     
+
+        <div class="modal-body">
+          <div class="modalDiv">
+         <label>Amount: </label> <input id="inputAmount" class="form-control" type="number" placeholder="Select amont$"/>
+         </div>
+         <div class="modalDiv">
+           <label>Date:</label> <input id="inputDate" class="form-control" type="date" placeholder="Recieving date"/>
+         </div>
+         <div class="modalDiv">
+           <label>Time:</label> <input id="inputTime" class="form-control" type="time" placeholder="Recieving time"/>
+         </div>
+         <div class="modalDiv"> 
+          <label>Description:</label> <input id="inputDes" style="height: 100px;" class="form-control" type="text" placeholder="Write description here"/>
+          </div>
+          <div class="modalDiv">
+            <label>Categories:</label> 
+           <select id="mySelect">
+             <option value="Project">Project</option>
+             <option value="Others">Others</option>
+             <option value="Salary">Salary</option>
+           </select>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button onclick="addIncome()" type="button" class="btn btn-primary">+ Add Income</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="expensesModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Expenses Modal</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+           
+          <label>Amount: </label> <input class="form-control" type="number" placeholder="Select amont$"/>
+        </div>
+        <div class="modalDiv">
+          <label>Date:</label> <input class="form-control" type="date" placeholder="Recieving date"/>
+        </div>
+        <div class="modalDiv">
+          <label>Time:</label> <input class="form-control" type="time" placeholder="Recieving time"/>
+        </div>
+        <div class="modalDiv"> 
+         <label>Description:</label> <input style="height: 100px;" class="form-control" type="text" placeholder="Write description here"/>
+         </div>
+         <div class="modalDiv">
+          <label>Upload Bill / Reciept</label>
+          <input  type="file"/>
+         </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">+ Add Expenses</button>
+        </div>
+      </div>
+    </div>
+  </div>
+   
+
+
+
+
+<!-- transaction box div ends here -->
+    </div>
+   
+
+    <!-- last bar -->
+    <br><br>
+    <div id="last-bar">
+      A product By Expertizo
+    </div>
+</body>
+<script src="transaction.js"></script>
+</html>
