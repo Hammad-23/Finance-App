@@ -3,11 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dashboard</title>
+
+    <!-- CSS only -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<!-- JS, Popper.js, and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+
+
+    
     <link href="dashboard.css" rel="stylesheet"/>
 </head>
 <body>
+
+
+
+
+      <div id="header">
+        <div style=" margin-right: 1099px;">
+    <!-- Sidebar -->
+    <div class="w3-sidebar w3-bar-block w3-border-right" style=" display:none" id="mySidebar">
+      <button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
+      <a href="#" class="w3-bar-item w3-button">Dashboard</a>
+      <a href="transaction/transaction.html" class="w3-bar-item w3-button">Transactions</a>
+      <a href="#" class="w3-bar-item w3-button">Settings</a>
+      <a href="#" class="w3-bar-item w3-button">Log Out</a>
+    </div>
+    
+    <!-- Page Content -->
+    <div class="w3-teal">
+      <button class="w3-button w3-teal w3-xlarge" onclick="w3_open()">☰</button>
+    </div>
+       
+    
+        </div>
+            <div class="padding">Welcome  <span style="color: darkblue; font-size: 23px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;" id="userName">Expertizo</span></div>
+            <img class="padding" width="30px" src="assets/user.png"/>
+            <p onclick="logOut()" class="padding">Log Out</p>
+    
+    
+        </div>
+
+
+
+        <br><br>
+
+        <div id="filters">
+              <div class="padding">
+                  <p>Select Month</p>
+                  <select id="month">
+                      <option value="0">Jan</option>
+                      <option value="1" >Feb</option>
+                      <option value="2">March</option>
+                      <option value="3" >April</option>
+                      <option value="4" >May</option>
+                      <option value="5" >June</option>
+                      <option value="6" >July</option>
+                      <option value="7">August</option>
+                      <option value="8">September</option>
+                      <option value="9">October</option>
+                      <option value="10">November</option>
+                      <option value="11">December</option>
+                  </select>
+              </div>
+              <div class="padding">
+                  <p>Select Year</p>
+                  <select id="year">
+                      <option >2019</option>
+                      <option >2020</option>
+                      <option >2021</option>
+                      <option >2022</option>
+                  </select>
+              </div>
+              <div class="padding">
+                  <p>Select transaction type</p>
+                  <select>
+                      <option>All</option>
+                      <option>Income</option>
+                      <option>Expenses</option>
+                  </select>
+              </div>
+              <button class="btn btn-primary">filters</button>
+    
+            
+              <div class="card border-primary mb-3" style="margin-left: 150px; max-width: 18rem;">
+                <div class="card-header">Your Total Incomes are</div>
+                <div class="card-body text-primary">
+                  <h5  class="card-title"></h5>
+                  <h1 id="income-card"></h1>
+                  <p class="card-text"></p>
+                </div>
+              </div>
+
+
+              <div class="card border-primary mb-3" style="margin-left: 150px; max-width: 18rem;">
+                <div class="card-header">Your Total Expenses are</div>
+                <div class="card-body text-primary">
+                  <h5 id="expense-card" class="card-title"></h5>
+                  <p class="card-text"></p>
+                </div>
+              </div>
+    
+        </div>
+        <hr/>
+
+        <div style="height: 150px; background-color: darkblue;">
+          <br> <br> 
+          <h1 style="text-align: center; color: white; font-family: sans-serif; font-size: 35px;">Hello World!</h1>
+        </div> <br><br>
+
+        <div class="cardss">
+
+         <div class="cards-div">
+
+          <div style="margin-left: 30px; height: 80px; width: 700px; background-color: green;">
+              <br>
+             <h2 style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; margin-left: 20px; color: white;">Recent Incomes</h2>
+          </div>
+
+         </div>
+
+         <div class="cardss-div">
+          <div style="margin-right: 30px; height: 80px; width: 700px; background-color: #e3b844;">
+            <br>
+            <h2 style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; margin-left: 20px; color: white;">Recent Expenses</h2>
+          </div>
+
+          </div>
+
+        </div>
+
+      
+
+
     
 </body>
 <script src="dashboard.js"></script>
+<!-- <script src="transaction/transaction.js"></script> -->
+
 </html>

@@ -4,6 +4,14 @@
 // }
 // localStorage.setItem("user",JSON.stringify(user))
 
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+}
+
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+}
+
 getName()
 getMonthAndYear()
 function getName() {
@@ -46,6 +54,8 @@ const mySelect = document.getElementById("mySelect").value
 // column3.innerHTML = inputAmount
 // column2.innerHTML = mySelect
 
+
+
 const table = document.getElementById("table")
 
 
@@ -58,6 +68,7 @@ const th =  document.createElement("TH")
 const trVal =  table.appendChild(tr)
 
 trVal.innerHTML = inputAmount
+
 
 
 // Console.log(trVal)
