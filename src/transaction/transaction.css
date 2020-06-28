@@ -8,6 +8,10 @@
     font-size: 20px;
     height: 70px;
 }
+ 
+body {
+    background-image: url(../assets/loginbg.jpg);
+}
 
 .padding {
     padding-right: 10px;

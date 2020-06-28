@@ -26,6 +26,10 @@
     width: 100px;
 }
 
+body {
+    background-image: url(assets/loginbg.jpg);
+}
+
 .cardss {
     display: flex;
       
