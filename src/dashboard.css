@@ -51,7 +51,8 @@ body {
 }
 #chartDiv{
 
-    width: 1300px;
-    height: 700px;
-    margin-left: 100px;
+    width: 1400px;
+    height: 600px;
+    margin-left: 50px;
+    background-color: white;
 }

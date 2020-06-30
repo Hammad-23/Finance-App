@@ -112,8 +112,9 @@
         <hr/>
 
         <div style="height: 150px; background-color: darkblue;">
-          <br> <br> 
-          <h1 style="text-align: center; color: white; font-family: sans-serif; font-size: 35px;">Hello World!</h1>
+          <br> 
+          <h1 style="text-align: center; color: white; font-family: sans-serif; font-size: 35px;">Your Available Balance is</h1>
+          <h1 style="text-align: center; color: white; font-family: sans-serif; font-size: 35px;">RS 0</h1>
         </div> <br><br>
 
         <div class="cardss">
@@ -141,7 +142,7 @@
         
         <div style="background-color: darkblue; height: 90px; color: white; font-size: 30px; ">
           
-           <p style="padding: 20px;">Income Overview</p>
+           <p style="padding: 20px; font-family: sans-serif;">Income Overview</p>
         </div>
 
         <canvas id="myChart" width="80" height="30"></canvas>
@@ -150,10 +151,10 @@ var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: ['january', 'febuary', 'march', 'April', 'May', 'June'],
         datasets: [{
             label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
+            data: [2, 3, 5, 6, 9,11],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
