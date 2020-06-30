@@ -49,3 +49,9 @@ body {
     height: 200px;
     
 }
+#chartDiv{
+
+    width: 1300px;
+    height: 700px;
+    margin-left: 100px;
+}
