@@ -1,15 +1,30 @@
 
-console.log(firebase)
+console.log(firebase.firestore)
 function signUp() {
     const name = document.getElementById("name").value
     const email = document.getElementById("email").value
     const password = document.getElementById("password").value
+    const age = document.getElementById("age").value
 
 
     firebase.auth().createUserWithEmailAndPassword(email, password)
     .then(function(){
-      alert("Successfully Registered!")
-      window.location.href = "index.html"
+      firebase.firestore().collection('users').add({
+        name,
+        email,
+        age
+      }).then(function(){
+        alert("Successfully Registered!")
+        window.location.href = "index.html"
+
+      }).catch(function(error){
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // ...
+        alert(errorMessage)
+
+      })
+    
     })
     .catch(function(error) {
       // Handle Errors here.
@@ -20,14 +35,13 @@ function signUp() {
     });
 
 
-  //   let user = {
-  //       name: name,
-  //       email: email,
-  //       password: password
-  //   }
-  // // localStorage.setItem("user",JSON.stringify(user))
-  // const data = localStorage.getItem("user")
-  // const user2 = JSON.parse(data)
+    let user = {
+        name: name,
+        
+    }
+  localStorage.setItem("user",JSON.stringify(user))
+  const data = localStorage.getItem("user")
+  const user2 = JSON.parse(data)
   
 
 

@@ -47,6 +47,7 @@ function addIncome() {
 
 
 const inputAmount = document.getElementById("inputAmount").value
+
 const inputDate = document.getElementById("inputDate").value
 const inputDes = document.getElementById("inputDes").value
 const mySelect = document.getElementById("mySelect").value
@@ -63,25 +64,14 @@ let td3 = document.createElement("TD")
 
 tableBody.appendChild(tr)
 tr.appendChild(th)
-th.appendChild(td1)
-th.appendChild(td2)
-th.appendChild(td3)
+tr.appendChild(td1)
+tr.appendChild(td2)
+tr.appendChild(td3)
+ 
 
 td1.innerHTML = inputDate
 td2.innerHTML = mySelect
 td3.innerHTML = inputAmount
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

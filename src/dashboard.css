@@ -28,6 +28,8 @@
 
 body {
     background-image: url(assets/loginbg.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .cardss {
