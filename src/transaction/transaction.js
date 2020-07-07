@@ -15,11 +15,27 @@ function w3_close() {
 getName()
 getMonthAndYear()
 function getName() {
-    const data = localStorage.getItem("user")
-  const user2 = JSON.parse(data)
-    // const name = JSON.parse( localStorage.getItem('user') )
+  //   const data = localStorage.getItem("user")
+  // const user2 = JSON.parse(data)
+  //   // const name = JSON.parse( localStorage.getItem('user') )
+   const userId =localStorage.getItem('userId')
+   console.log(userId)
+
+   firebase.firestore().collection('users').doc(userId).get()
+   .then(function(snapshot){
+     console.log(snapshot.data())
+
+     const userObj = snapshot.data()
+     
     const userName = document.getElementById("userName")
-    userName.innerHTML = user2.name
+    userName.innerHTML = userObj.name
+
+
+   }).catch(function(){
+
+
+   })
+
 }
 
 function getMonthAndYear() {
@@ -69,11 +85,108 @@ tr.appendChild(td2)
 tr.appendChild(td3)
  
 
-td1.innerHTML = inputDate
-td2.innerHTML = mySelect
-td3.innerHTML = inputAmount
+// td1.innerHTML = inputDate
+// td2.innerHTML = mySelect
+// td3.innerHTML = inputAmount
+
+const userId = localStorage.getItem('userId')
+firebase.firestore().collection('transactions').add({
+  amount: inputAmount,
+  date: inputDate,
+  transactionCategory: mySelect,
+  description: inputDes,
+  userId,
+  type: 'Income'
+  
+
+}).then(function(){
+alert("Transaction Saved.")
+clearIncome()
+$('#incomeModal').modal('hide')
+
+}).catch(function(error){
+
+  var errorCode = error.code;
+  var errorMessage = error.message;
+  // ...
+  alert(errorMessage)
+
+})
+
+
+firebase.firestore().collection('transactions').doc(userId).get()
+.then(function(snapshot){
+
+  const userTransactions = snapshot.data()
+  
+  
+td1.innerHTML = userTransactions.date
+td2.innerHTML = userTransactions.transactionCategory
+td3.innerHTML = userTransactions.amount
+
+
+}).catch(function(error){
+
+  var errorCode = error.code;
+  var errorMessage = error.message;
+  // ...
+  alert(errorMessage)
+
+})
+
+}
+
+
+function clearIncome(){
+
+
+  
+ document.getElementById("inputAmount").value = ''
+
+ document.getElementById("inputDate").value = ''
+ document.getElementById("inputDes").value = ''
+ document.getElementById("mySelect").value = ''
+
+}
 
 
 
+
+
+function addExpense() {
+
+  const amount = document.getElementById("expenseAmount").value
+  const date = document.getElementById("expenseDate").value
+  const time = document.getElementById("expenseTime").value
+  const description = document.getElementById("expenseDescription").value
+
+  firebase.firestore().collection('transactions').add({
+
+    amount,
+    date,
+    time,
+    description,
+    type: 'Expense'
+  }).then(function(){
+    alert('Transaction Saved.')
+    clearExpense()
+    $('#expenseModal').modal('hide')
+
+  }).catch(function(error){
+    alert(error.message)
+
+  })
+
+
+
+}
+
+
+function clearExpense() {
+
+  document.getElementById("expenseAmount").value = ''
+   document.getElementById("expenseDate").value = ''
+   document.getElementById("expenseTime").value = ''
+   document.getElementById("expenseDescription").value = ''
 
 }

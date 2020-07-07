@@ -8,8 +8,13 @@ function signUp() {
 
 
     firebase.auth().createUserWithEmailAndPassword(email, password)
-    .then(function(){
-      firebase.firestore().collection('users').add({
+    .then(function(userResponse){
+
+      console.log(userResponse)
+      const userId = userResponse.user.uid
+
+      // firebase.firestore().collection('users').add({
+        firebase.firestore().collection('users').doc(userId).set({
         name,
         email,
         age
@@ -54,7 +59,12 @@ const userEmail = document.getElementById("userEmail").value
 const userPass = document.getElementById("userPass").value
 
 firebase.auth().signInWithEmailAndPassword(userEmail, userPass)
-.then(function(user){
+.then(function(userResponse){
+
+  console.log(userResponse)
+  const userId = userResponse.user.uid
+  localStorage.setItem('userId',userId)
+
   alert("Successfully Logged In")
   window.location.href = "src/transaction/transaction.html"
 })

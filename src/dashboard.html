@@ -193,6 +193,30 @@ var myChart = new Chart(ctx, {
 
     
 </body>
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-firestore.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyDWcgKr_ENsQSZ6NOkOMIT4FDqGuZDmbWY",
+    authDomain: "financeapp-3ac53.firebaseapp.com",
+    databaseURL: "https://financeapp-3ac53.firebaseio.com",
+    projectId: "financeapp-3ac53",
+    storageBucket: "financeapp-3ac53.appspot.com",
+    messagingSenderId: "365445155990",
+    appId: "1:365445155990:web:ad2984c029efd8e76e06b7"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+
 <script src="dashboard.js"></script>
 <!-- <script src="transaction/transaction.js"></script> -->
 
