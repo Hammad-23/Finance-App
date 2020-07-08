@@ -64,30 +64,12 @@ function addIncome() {
 
 
 
-// const inputAmount = document.getElementById("inputAmount").value
+    
+const inputAmount = document.getElementById("inputAmount").value 
 
-// const inputDate = document.getElementById("inputDate").value
-// const inputDes = document.getElementById("inputDes").value
-// const mySelect = document.getElementById("mySelect").value
-
-// let tableBody = document.getElementById("tableBody")
-// let tr = document.createElement("TR")
-// let th = document.createElement("TH")
-// th.setAttribute("scope","row")
-// let td1 = document.createElement("TD")
-// let td2 = document.createElement("TD")
-// let td3 = document.createElement("TD")
-
-// tableBody.appendChild(tr)
-// tr.appendChild(th)
-// tr.appendChild(td1)
-// tr.appendChild(td2)
-// tr.appendChild(td3)
- 
-
-// td1.innerHTML = inputDate
-// td2.innerHTML = mySelect
-// td3.innerHTML = inputAmount
+const inputDate  = document.getElementById("inputDate").value 
+const inputDes = document.getElementById("inputDes").value 
+const mySelect = document.getElementById("mySelect").value 
 
 const userId = localStorage.getItem('userId')
 firebase.firestore().collection('transactions').add({
@@ -96,7 +78,7 @@ firebase.firestore().collection('transactions').add({
   transactionCategory: mySelect,
   description: inputDes,
   userId,
-  type: 'Income'
+  type: 'income'
   
 
 }).then(function(){
@@ -146,18 +128,23 @@ function addExpense() {
   const time = document.getElementById("expenseTime").value
   const description = document.getElementById("expenseDescription").value
 
-  firebase.firestore().collection('transactions').add({
-
+  let expenseObj = {
     amount,
     date,
     time,
     description,
     userId,
-    type: 'Expense'
-  }).then(function(){
-    alert('Transaction Saved.')
-    clearExpense()
-    $('#expenseModal').modal('hide')
+    type: 'expense'
+  }
+
+  firebase.firestore().collection('transactions').add(
+  expenseObj
+    
+).then(function(success){
+   console.log(success)
+    // alert('Transaction Saved.')
+    // clearExpense()
+    // $('#expenseModal').modal('hide')
 
   }).catch(function(error){
     alert(error.message)
@@ -180,21 +167,26 @@ function clearExpense() {
 
 
 function getTransactions(){
-
-  firebase.firestore().collection('transactions').get()
+  // console.log('hello')
+  const userId = localStorage.getItem('userId')
+  
+  firebase.firestore().collection('transactions')
+  .where('userId', '==' ,userId)
+  .orderBy("date","desc")
+  
+  .get()
   .then(function(snapshot){
+    // console.log('error' ,snapshot)
   
     // const userTransactions = snapshot.data()
     snapshot.forEach(function(doc){
 
+
       const data = doc.data()
+      console.log(data)
 
 
-//       const inputAmount = document.getElementById("inputAmount").value
 
-// const inputDate = document.getElementById("inputDate").value
-// const inputDes = document.getElementById("inputDes").value
-// const mySelect = document.getElementById("mySelect").value
 
 let tableBody = document.getElementById("tableBody")
 let tr = document.createElement("TR")
@@ -225,12 +217,66 @@ tr.appendChild(td3)
   
   
   }).catch(function(error){
-  
+    
     var errorCode = error.code;
     var errorMessage = error.message;
     // ...
-    alert(errorMessage)
+    console.log(errorMessage)
   
+  })
+
+}
+
+
+function filter() {
+  const userId =localStorage.getItem('userId')
+  const type = document.getElementById('type-filter').value
+  if (type === 'all'){
+    return getTransactions()
+  }
+
+  
+  firebase.firestore().collection('transactions')
+  
+  .where('type', '==' ,type)
+  .where('userId', '==' ,userId)
+  .orderBy("date","desc")
+  .get()
+  
+  .then(function(snapshot){
+  
+    // const userTransactions = snapshot.data()
+    snapshot.forEach(function(doc){
+
+      const data = doc.data()
+
+
+
+
+let tableBody = document.getElementById("tableBody")
+let tr = document.createElement("TR")
+let th = document.createElement("TH")
+th.setAttribute("scope","row")
+let td1 = document.createElement("TD")
+let td2 = document.createElement("TD")
+let td3 = document.createElement("TD")
+
+tableBody.appendChild(tr)
+tr.appendChild(th)
+tr.appendChild(td1)
+tr.appendChild(td2)
+tr.appendChild(td3)
+
+
+ td1.innerHTML = data.date
+
+  td2.innerHTML = data.transactionCategory
+  td3.innerHTML = data.amount
+
+
+
+    })
+
   })
 
 }

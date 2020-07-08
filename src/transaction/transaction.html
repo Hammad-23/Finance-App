@@ -73,13 +73,13 @@
           </div>
           <div class="padding">
               <p>Select transaction type</p>
-              <select>
-                  <option>All</option>
-                  <option>Income</option>
-                  <option>Expenses</option>
+              <select id="type-filter">
+                  <option value="all">All</option>
+                  <option value="income">Income</option>
+                  <option value="expense">Expenses</option>
               </select>
           </div>
-          <button class="btn btn-primary">filters</button>
+          <button class="btn btn-primary" onclick="filter()">filters</button>
 
         
          
