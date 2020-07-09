@@ -142,9 +142,11 @@ function addExpense() {
     
 ).then(function(success){
    console.log(success)
-    // alert('Transaction Saved.')
-    // clearExpense()
-    // $('#expenseModal').modal('hide')
+    alert('Transaction Saved.')
+    clearExpense()
+    getTransactions()
+    $('#expenseModal').modal('hide')
+   
 
   }).catch(function(error){
     alert(error.message)
@@ -189,6 +191,7 @@ function getTransactions(){
 
 
 let tableBody = document.getElementById("tableBody")
+tableBody.innerHTML = ''
 let tr = document.createElement("TR")
 let th = document.createElement("TH")
 th.setAttribute("scope","row")
@@ -279,4 +282,10 @@ tr.appendChild(td3)
 
   })
 
+}
+
+
+function availableBalance(){
+
+  
 }
