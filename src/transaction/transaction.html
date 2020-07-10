@@ -47,7 +47,7 @@
     <div id="filters">
           <div class="padding">
               <p>Select Month</p>
-              <select id="month">
+              <select class="form-control" id="month">
                   <option value="0">Jan</option>
                   <option value="1" >Feb</option>
                   <option value="2">March</option>
@@ -64,7 +64,7 @@
           </div>
           <div class="padding">
               <p>Select Year</p>
-              <select id="year">
+              <select class="form-control" id="year">
                   <option >2019</option>
                   <option >2020</option>
                   <option >2021</option>
@@ -73,7 +73,7 @@
           </div>
           <div class="padding">
               <p>Select transaction type</p>
-              <select id="type-filter">
+              <select class="form-control" id="type-filter">
                   <option value="all">All</option>
                   <option value="income">Income</option>
                   <option value="expense">Expenses</option>
@@ -226,7 +226,7 @@
   </div>
 
 
-
+  
 
   <!-- Modal -->
   <div class="modal fade" id="expensesModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -249,18 +249,18 @@
           <label>Time:</label> <input id="expenseTime" class="form-control" type="time" placeholder="Recieving time"/>
         </div>
         <div class="modalDiv"> 
-         <label>Description:</label> <input id="expenseDescription" style="height: 100px;" class="form-control" type="text" placeholder="Write description here"/>
+         <label>Description:</label> <input id="expenseDescription" style="height: 50px;" class="form-control" type="text" placeholder="Write description here"/>
          </div>
          <div class="modalDiv">
           <label>Upload Bill / Reciept</label>
           <input  type="file"/>
          </div>
-
-        </div>
-        <div class="modal-footer">
+         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" onclick="addExpense()">+ Add Expenses</button>
+          <button type="button" class="btn btn-primary" onclick="addExpense()" >+ Add Expenses</button>
         </div>
+        </div>
+        
       </div>
     </div>
   </div>

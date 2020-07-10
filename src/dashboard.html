@@ -55,7 +55,7 @@
         <div id="filters">
               <div class="padding">
                   <p>Select Month</p>
-                  <select id="month">
+                  <select class="form-control" id="month">
                       <option value="0">Jan</option>
                       <option value="1" >Feb</option>
                       <option value="2">March</option>
@@ -72,7 +72,7 @@
               </div>
               <div class="padding">
                   <p>Select Year</p>
-                  <select id="year">
+                  <select class="form-control" id="year">
                       <option >2019</option>
                       <option >2020</option>
                       <option >2021</option>
@@ -81,7 +81,7 @@
               </div>
               <div class="padding">
                   <p>Select transaction type</p>
-                  <select>
+                  <select class="form-control">
                       <option>All</option>
                       <option>Income</option>
                       <option>Expenses</option>
@@ -147,6 +147,9 @@
 
         <canvas id="myChart" width="80" height="30"></canvas>
 <script>
+
+
+
 var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'bar',

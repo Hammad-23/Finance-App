@@ -122,6 +122,7 @@ function clearIncome(){
 
 
 function addExpense() {
+  // alert('Hello World')
   const userId =localStorage.getItem('userId')
   const amount = document.getElementById("expenseAmount").value
   const date = document.getElementById("expenseDate").value
@@ -285,7 +286,9 @@ tr.appendChild(td3)
 }
 
 
-function availableBalance(){
+function graphData(){
 
   
 }
+
+
