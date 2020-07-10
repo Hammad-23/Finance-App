@@ -18,6 +18,8 @@ getMonthAndYear()
 
 getTransactions()
 
+
+
 function getName() {
   //   const data = localStorage.getItem("user")
   // const user2 = JSON.parse(data)
@@ -127,13 +129,13 @@ function addExpense() {
   const amount = document.getElementById("expenseAmount").value
   const date = document.getElementById("expenseDate").value
   const time = document.getElementById("expenseTime").value
-  const description = document.getElementById("expenseDescription").value
+  const mySelect = document.getElementById("mySelect").value
 
   let expenseObj = {
     amount,
     date,
     time,
-    description,
+    transactionCategory: mySelect,
     userId,
     type: 'expense'
   }
@@ -171,6 +173,8 @@ function clearExpense() {
 
 function getTransactions(){
   // console.log('hello')
+  let tableBody = document.getElementById("tableBody")
+tableBody.innerHTML = ''
   const userId = localStorage.getItem('userId')
   
   firebase.firestore().collection('transactions')
@@ -191,8 +195,7 @@ function getTransactions(){
 
 
 
-let tableBody = document.getElementById("tableBody")
-tableBody.innerHTML = ''
+
 let tr = document.createElement("TR")
 let th = document.createElement("TH")
 th.setAttribute("scope","row")
@@ -286,9 +289,5 @@ tr.appendChild(td3)
 }
 
 
-function graphData(){
-
-  
-}
 
 

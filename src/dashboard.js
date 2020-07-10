@@ -11,12 +11,30 @@ function w3_open() {
 
   getName()
 getMonthAndYear()
+availableBalance()
+
 function getName() {
-    const data = localStorage.getItem("user")
-  const user2 = JSON.parse(data)
-    // const name = JSON.parse( localStorage.getItem('user') )
+  //   const data = localStorage.getItem("user")
+  // const user2 = JSON.parse(data)
+  //   // const name = JSON.parse( localStorage.getItem('user') )
+   const userId =localStorage.getItem('userId')
+   console.log(userId)
+
+   firebase.firestore().collection('users').doc(userId).get()
+   .then(function(snapshot){
+     console.log(snapshot.data())
+
+     const userObj = snapshot.data()
+     
     const userName = document.getElementById("userName")
-    userName.innerHTML = user2.name
+    userName.innerHTML = userObj.name
+
+
+   }).catch(function(){
+
+
+   })
+
 }
 
 function getMonthAndYear() {
@@ -34,4 +52,41 @@ function getMonthAndYear() {
 function logOut() {
   window.localStorage.clear()
   window.location.href = "../index.html"
+}
+
+
+
+
+
+let currentBalance = 0
+function availableBalance(){
+
+  const userId = localStorage.getItem('userId')
+  
+  firebase.firestore().collection('transactions')
+  .where('userId', '==' ,userId)
+  .orderBy("date","desc")
+  
+  .get()
+  .then(function(snapshot){
+    // console.log('error' ,snapshot)
+  
+    // const userTransactions = snapshot.data()
+    snapshot.forEach(function(doc){
+
+
+      const data = doc.data()
+      console.log(data)
+      let consider =+ data.amount
+
+      currentBalance = currentBalance + consider
+      console.log(consider)
+
+     let balance = document.getElementById("balance")
+     balance.innerHTML = `RS ${currentBalance}`
+
+    })
+
+  })
+
 }
