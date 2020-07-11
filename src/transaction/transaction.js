@@ -241,7 +241,8 @@ function filter() {
   if (type === 'all'){
     return getTransactions()
   }
-
+  let tableBody = document.getElementById("tableBody")
+  tableBody.innerHTML = ""
   
   firebase.firestore().collection('transactions')
   
@@ -260,7 +261,7 @@ function filter() {
 
 
 
-let tableBody = document.getElementById("tableBody")
+
 let tr = document.createElement("TR")
 let th = document.createElement("TH")
 th.setAttribute("scope","row")
