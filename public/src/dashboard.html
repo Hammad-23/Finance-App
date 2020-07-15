@@ -79,6 +79,8 @@
                       <option >2022</option>
                   </select>
               </div>
+
+              
               <div class="padding">
                   <p>Select transaction type</p>
                   <select class="form-control">
@@ -88,26 +90,11 @@
                   </select>
               </div>
               <button class="btn btn-primary">filters</button>
-    
-            
-              <div class="card border-primary mb-3" style="margin-left: 150px; max-width: 18rem;">
-                <div class="card-header">Your Total Incomes are</div>
-                <div class="card-body text-primary">
-                  <h5  class="card-title"></h5>
-                  <h1 id="income-card"></h1>
-                  <p class="card-text"></p>
-                </div>
-              </div>
+
+             
 
 
-              <div class="card border-primary mb-3" style="margin-left: 150px; max-width: 18rem;">
-                <div class="card-header">Your Total Expenses are</div>
-                <div class="card-body text-primary">
-                  <h5 id="expense-card" class="card-title"></h5>
-                  <p class="card-text"></p>
-                </div>
-              </div>
-    
+              
         </div>
         <hr/>
 
@@ -121,22 +108,105 @@
 
          <div class="cards-div">
 
-          <div style="margin-left: 30px; height: 80px; width: 700px; background-color: green;">
+          <div style="  height: 80px; width: 700px; background-color: green;">
               <br>
-             <h2 style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; margin-left: 20px; color: white;">Recent Incomes</h2>
+             <h2 style=" font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; margin-left: 20px; color: white;">Recent Incomes</h2>
           </div>
+        <!-- <table border="2" id="table">
+          <thead >
+            <tr >
+              <th >
+                Projects
+              </th>
+              <th >
+                Amount
+              </th>
+            </tr>
+          </thead>
+
+
+
+        </table> -->
+        <table class="table table-bordered table-dark">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Projects</th>
+              <th scope="col">Amount</th>
+              <!-- <th scope="col">Handle</th> -->
+            </tr>
+          </thead>
+          <tbody id="table-body">
+            <!-- <tr>
+              <th scope="row">1</th>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td colspan="2">Larry the Bird</td>
+              <td>@twitter</td>
+            </tr> -->
+          </tbody>
+        </table>
 
          </div>
 
          <div class="cardss-div">
-          <div style="margin-right: 30px; height: 80px; width: 700px; background-color: #e3b844;">
+          <div style=" height: 80px; width: 700px; background-color: #e3b844;">
             <br>
             <h2 style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; margin-left: 20px; color: white;">Recent Expenses</h2>
           </div>
+          
+          <table class="table table-bordered table-dark">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Amount</th>
+                <!-- <th scope="col">Handle</th> -->
+              </tr>
+            </thead>
+            <tbody id="tableBody">
+              <!-- <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td colspan="2">Larry the Bird</td>
+                <td>@twitter</td>
+              </tr> -->
+            </tbody>
+          </table>
 
           </div>
-
+        
         </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
 
       <div id="chartDiv">
         

@@ -1,4 +1,6 @@
 
+
+
 console.log(firebase.firestore)
 function signUp() {
     const name = document.getElementById("name").value
@@ -28,6 +30,8 @@ function signUp() {
         // ...
         alert(errorMessage)
 
+     
+
       })
     
     })
@@ -37,6 +41,9 @@ function signUp() {
       var errorMessage = error.message;
       // ...
       alert(errorMessage)
+     
+    
+
     });
 
 

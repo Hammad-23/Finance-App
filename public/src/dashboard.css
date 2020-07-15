@@ -41,14 +41,19 @@ body {
 
 
 .cards-div {
-    border: solid black;
+    /* border: solid black; */
     height: 200px;
+    box-shadow: grey 0px 4px 4px;
+    margin-left: 20px;
+    
     
 }
 
 .cardss-div {
-    border: solid black;
+    /* border: solid black; */
     height: 200px;
+    box-shadow: grey 0px 4px 4px;
+    margin-right: 20px;
     
 }
 #chartDiv{
@@ -57,4 +62,9 @@ body {
     height: 600px;
     margin-left: 50px;
     background-color: white;
+}
+
+.small-cards {
+
+    box-shadow: grey 0px 4px 4px;
 }

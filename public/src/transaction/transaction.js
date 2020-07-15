@@ -84,7 +84,14 @@ firebase.firestore().collection('transactions').add({
   
 
 }).then(function(){
-alert("Transaction Saved.")
+// alert("Transaction Saved.")
+Swal.fire({
+  position: 'top-end',
+  icon: 'success',
+  title: 'Transaction Saved',
+  showConfirmButton: false,
+  timer: 1500
+})
 
 clearIncome()
 
