@@ -14,6 +14,7 @@ getMonthAndYear()
 availableBalance()
 recentIncome()
 recentExpense()
+totalExpenses()
 
 function getName() {
   //   const data = localStorage.getItem("user")
@@ -62,6 +63,7 @@ function logOut() {
 // let expense = 0
 let currentBalance = 0
 function availableBalance(){
+  let income = document.getElementById('income')
 
   const userId = localStorage.getItem('userId')
   
@@ -87,6 +89,7 @@ function availableBalance(){
 
      let balance = document.getElementById("balance")
      balance.innerHTML = `RS ${currentBalance}`
+     income.innerHTML = `RS ${currentBalance}`
 
     })
 
@@ -105,6 +108,7 @@ function recentIncome() {
   .where('type', '==' ,'income')
   .where('userId', '==' ,userId)
   .orderBy("date","desc")
+  .limit(5)
   .get()
 
   .then(function(snapshot){
@@ -158,6 +162,7 @@ function recentExpense() {
   .where('type', '==' ,'expense')
   .where('userId', '==' ,userId)
   .orderBy("date","desc")
+  .limit(5)
   .get()
 
   .then(function(snapshot){
@@ -196,5 +201,45 @@ function recentExpense() {
     //   const data = doc.data()
 
     
+
+}
+
+let expense = 0
+function totalExpenses() {
+  let showExpense = document.getElementById('showExpense')
+
+  const tableBody = document.getElementById('tableBody')
+  
+  
+  const userId =localStorage.getItem('userId')
+  firebase.firestore().collection('transactions')
+  
+  .where('type', '==' ,'expense')
+  .where('userId', '==' ,userId)
+  .orderBy("date","desc")
+  .get()
+
+  .then(function(snapshot){
+
+    snapshot.forEach(function(doc){
+      
+      const data = doc.data()
+
+      const allExpense =+ data.amount
+
+      expense = expense + allExpense
+      // console.log(expense)
+      showExpense.innerHTML = `RS ${expense}`
+      
+     
+     
+
+     
+
+
+    })
+
+
+  })
 
 }

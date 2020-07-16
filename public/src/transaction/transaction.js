@@ -152,7 +152,13 @@ function addExpense() {
     
 ).then(function(success){
    console.log(success)
-    alert('Transaction Saved.')
+   Swal.fire({
+    position: 'top-end',
+    icon: 'success',
+    title: 'Transaction Saved',
+    showConfirmButton: false,
+    timer: 1500
+  })
     clearExpense()
     getTransactions()
     $('#expenseModal').modal('hide')
