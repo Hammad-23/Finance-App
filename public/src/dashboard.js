@@ -16,6 +16,8 @@ recentIncome()
 recentExpense()
 totalExpenses()
 
+
+
 function getName() {
   //   const data = localStorage.getItem("user")
   // const user2 = JSON.parse(data)
@@ -87,8 +89,7 @@ function availableBalance(){
       currentBalance = currentBalance + consider
       console.log(consider)
 
-     let balance = document.getElementById("balance")
-     balance.innerHTML = `RS ${currentBalance}`
+     
      income.innerHTML = `RS ${currentBalance}`
 
     })
@@ -228,8 +229,20 @@ function totalExpenses() {
       const allExpense =+ data.amount
 
       expense = expense + allExpense
-      // console.log(expense)
+      // console.log(currentBalance)
       showExpense.innerHTML = `RS ${expense}`
+
+
+
+
+
+      let balanceCurrent = document.getElementById("balance")
+  
+      balance = currentBalance - expense
+      console.log(currentBalance)
+      console.log(balance)
+   
+     balanceCurrent.innerHTML = `RS ${balance}`
       
      
      
@@ -242,4 +255,23 @@ function totalExpenses() {
 
   })
 
+
+
+ 
+  
 }
+
+// let balance = 0
+//  function bal() {
+//     let balanceCurrent = document.getElementById("balance")
+  
+//      balance = currentBalance - expense
+//      console.log(currentBalance)
+//      console.log(balance)
+  
+//     balanceCurrent.innerHTML = `RS ${balance}`
+  
+  
+  
+//   }
+//   bal()

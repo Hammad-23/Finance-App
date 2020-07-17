@@ -21,7 +21,15 @@ function signUp() {
         email,
         age
       }).then(function(){
-        alert("Successfully Registered!")
+       
+        setTimeout(function(){
+           Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Successfully Registered',
+            showConfirmButton: false,
+            timer: 1500
+          }) }, 3000);
         window.location.href = "index.html"
 
       }).catch(function(error){
@@ -72,7 +80,13 @@ firebase.auth().signInWithEmailAndPassword(userEmail, userPass)
   const userId = userResponse.user.uid
   localStorage.setItem('userId',userId)
 
-  alert("Successfully Logged In")
+  Swal.fire({
+    position: 'top-end',
+    icon: 'success',
+    title: 'Successfully Logged In',
+    showConfirmButton: false,
+    timer: 2000
+  })
   window.location.href = "src/transaction/transaction.html"
 })
 .catch(function(error) {
