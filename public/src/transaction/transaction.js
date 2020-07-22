@@ -136,13 +136,13 @@ function addExpense() {
   const amount = document.getElementById("expenseAmount").value
   const date = document.getElementById("expenseDate").value
   const time = document.getElementById("expenseTime").value
-  const mySelect = document.getElementById("mySelect").value
+  const choose = document.getElementById("choose").value
 
   let expenseObj = {
     amount,
     date,
     time,
-    transactionCategory: mySelect,
+    transactionCategory: choose,
     userId,
     type: 'expense'
   }
@@ -150,8 +150,8 @@ function addExpense() {
   firebase.firestore().collection('transactions').add(
   expenseObj
     
-).then(function(success){
-   console.log(success)
+).then(function(){
+  //  console.log(success)
    Swal.fire({
     position: 'top-end',
     icon: 'success',
@@ -166,6 +166,7 @@ function addExpense() {
 
   }).catch(function(error){
     alert(error.message)
+    
 
   })
 
@@ -179,7 +180,7 @@ function clearExpense() {
   document.getElementById("expenseAmount").value = ''
    document.getElementById("expenseDate").value = ''
    document.getElementById("expenseTime").value = ''
-   document.getElementById("expenseDescription").value = ''
+   document.getElementById("choose").value = ''
 
 }
 
